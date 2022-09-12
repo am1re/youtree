@@ -10,56 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_081156) do
-  create_table "events", force: :cascade do |t|
-    t.integer "tree_id", null: false
-    t.string "type"
-    t.text "description"
-    t.date "happened_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tree_id"], name: "index_events_on_tree_id"
-    t.index ["type"], name: "index_events_on_type"
+ActiveRecord::Schema[7.0].define(version: 20_220_912_081_156) do
+  create_table 'events', force: :cascade do |t|
+    t.integer 'tree_id', null: false
+    t.string 'type'
+    t.text 'description'
+    t.date 'happened_at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['tree_id'], name: 'index_events_on_tree_id'
+    t.index ['type'], name: 'index_events_on_type'
   end
 
-  create_table "requests", force: :cascade do |t|
-    t.string "status"
-    t.integer "tree_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["status"], name: "index_requests_on_status"
-    t.index ["tree_id"], name: "index_requests_on_tree_id"
+  create_table 'requests', force: :cascade do |t|
+    t.string 'status'
+    t.integer 'tree_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['status'], name: 'index_requests_on_status'
+    t.index ['tree_id'], name: 'index_requests_on_tree_id'
   end
 
-  create_table "trees", force: :cascade do |t|
-    t.float "longitude"
-    t.float "latitude"
-    t.text "description"
-    t.boolean "visible"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_trees_on_user_id"
+  create_table 'trees', force: :cascade do |t|
+    t.float 'longitude'
+    t.float 'latitude'
+    t.text 'description'
+    t.boolean 'visible'
+    t.integer 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_trees_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.string 'confirmation_token'
+    t.datetime 'confirmed_at'
+    t.datetime 'confirmation_sent_at'
+    t.string 'unconfirmed_email'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['confirmation_token'], name: 'index_users_on_confirmation_token', unique: true
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key "events", "trees"
-  add_foreign_key "requests", "trees"
-  add_foreign_key "trees", "users"
+  add_foreign_key 'events', 'trees'
+  add_foreign_key 'requests', 'trees'
+  add_foreign_key 'trees', 'users'
 end

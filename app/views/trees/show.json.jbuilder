@@ -1,1 +1,1 @@
-json.partial! "trees/tree", tree: @tree
+json.partial! 'trees/tree', tree: @tree
