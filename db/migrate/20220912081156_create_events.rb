@@ -1,6 +1,6 @@
-class CreateTreeEvents < ActiveRecord::Migration[7.0]
+class CreateEvents < ActiveRecord::Migration[7.0]
   def change
-    create_table :tree_events do |t|
+    create_table :events do |t|
       t.references :tree, null: false, foreign_key: true
       t.string :type
       t.text :description
@@ -8,6 +8,6 @@ class CreateTreeEvents < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :tree_events, :type
+    add_index :events, :type
   end
 end

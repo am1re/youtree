@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_11_164456) do
-  create_table "tree_events", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_081156) do
+  create_table "events", force: :cascade do |t|
     t.integer "tree_id", null: false
     t.string "type"
     t.text "description"
     t.date "happened_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tree_id"], name: "index_tree_events_on_tree_id"
-    t.index ["type"], name: "index_tree_events_on_type"
+    t.index ["tree_id"], name: "index_events_on_tree_id"
+    t.index ["type"], name: "index_events_on_type"
   end
 
-  create_table "tree_requests", force: :cascade do |t|
+  create_table "requests", force: :cascade do |t|
     t.string "status"
     t.integer "tree_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["status"], name: "index_tree_requests_on_status"
-    t.index ["tree_id"], name: "index_tree_requests_on_tree_id"
+    t.index ["status"], name: "index_requests_on_status"
+    t.index ["tree_id"], name: "index_requests_on_tree_id"
   end
 
   create_table "trees", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_11_164456) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "tree_events", "trees"
-  add_foreign_key "tree_requests", "trees"
+  add_foreign_key "events", "trees"
+  add_foreign_key "requests", "trees"
   add_foreign_key "trees", "users"
 end
