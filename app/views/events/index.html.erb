@@ -4,11 +4,12 @@
 
 <div id="events">
   <% @events.each do |event| %>
-    <%= render event %>
     <p>
-      <%= link_to "Show this event", tree_event_path(@tree, event) %>
+      <% link_text = "#{event.kind || event.id} - #{event.happened_at || 'empty'}" %>
+      <%= link_to link_text, tree_event_path(@tree, event) %>
     </p>
   <% end %>
 </div>
 
 <%= link_to "New event", new_tree_event_path %>
+<%= link_to "Back to tree", tree_path(@tree) %>

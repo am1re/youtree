@@ -3,8 +3,15 @@
 <%= render @tree %>
 
 <h3>Tree Events</h3>
-<%= render @tree.events %>
+<% @tree.events.each do |event| %>
+  <% link_text = "#{event.kind || event.id} - #{event.happened_at || 'empty'}" %>
+  <%= link_to link_text, tree_event_path(@tree, event) %>
+  <br>
+<% end %>
 <%= link_to "See all events", tree_events_path(@tree) %>
+
+<br>
+<br>
 
 <div>
   <%= link_to "Edit this tree", edit_tree_path(@tree) %> |

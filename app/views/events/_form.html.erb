@@ -11,6 +11,14 @@
     </div>
   <% end %>
 
+  <%= form.label :kind, "Event kind:" %>
+  <%= form.text_field :kind %>
+  <br>
+  <%= form.text_area :description %>
+  <br>
+  <%= form.label :happened_at, "Date happened:" %>
+  <%= form.date_field :happened_at %>
+
   <div>
     <%= form.submit %>
   </div>
