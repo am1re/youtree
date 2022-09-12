@@ -4,9 +4,8 @@
 
 <div id="trees">
   <% @trees.each do |tree| %>
-    <%= render tree %>
     <p>
-      <%= link_to "Show this tree", tree %>
+      <%= link_to "Tree #{tree.id}", tree %>
     </p>
   <% end %>
 </div>

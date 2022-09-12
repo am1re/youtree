@@ -2,6 +2,10 @@
 
 <%= render @tree %>
 
+<h3>Tree Events</h3>
+<%= render @tree.events %>
+<%= link_to "See all events", tree_events_path(@tree) %>
+
 <div>
   <%= link_to "Edit this tree", edit_tree_path(@tree) %> |
   <%= link_to "Back to trees", trees_path %>

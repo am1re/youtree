@@ -21,6 +21,11 @@ class TreesController < ApplicationController
   def create
     @tree = Tree.new(tree_params)
 
+    # TODO: manage users
+    @tree.user = User.first
+    # TODO: manage visibility
+    @tree.visible = true
+
     respond_to do |format|
       if @tree.save
         format.html { redirect_to tree_url(@tree), notice: 'Tree was successfully created.' }
@@ -64,6 +69,6 @@ class TreesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def tree_params
-    params.fetch(:tree, {})
+    params.require(:tree).permit(:description, :latitude, :longitude, :visible)
   end
 end
