@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_912_081_156) do
+ActiveRecord::Schema[7.0].define(version: 20_220_912_141_542) do
   create_table 'events', force: :cascade do |t|
     t.integer 'tree_id', null: false
-    t.string 'type'
+    t.string 'kind'
     t.text 'description'
     t.date 'happened_at'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index ['kind'], name: 'index_events_on_kind'
     t.index ['tree_id'], name: 'index_events_on_tree_id'
-    t.index ['type'], name: 'index_events_on_type'
   end
 
   create_table 'requests', force: :cascade do |t|

@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  tree_id     :integer          not null
-#  type        :string
+#  kind        :string
 #  description :text
 #  happened_at :date
 #  created_at  :datetime         not null
