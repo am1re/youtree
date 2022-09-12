@@ -1,0 +1,10 @@
+<h1>Editing event</h1>
+
+<%= render "form", tree: @tree, event: @event %>
+
+<br>
+
+<div>
+  <%= link_to "Show this event", tree_event_path(@tree, @event) %> |
+  <%= link_to "Back to events", tree_events_path %>
+</div>
