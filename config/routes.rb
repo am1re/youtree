@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :trees do
     resources :events
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root 'trees#index'
 end
